@@ -22,12 +22,12 @@
                 <p id="sublogo">Over<br/>Shoes</p>
                 <h:form>
                     <div class="menu">
-                        <h:commandLink id="inicio" value="INICIO"/>
-                        <h:commandLink id="sobre" value="SOBRE"/>
-                        <h:commandLink id="ideias" value="PRODUTOS"/>
+                        <h:commandLink id="inicio" value="INICIO" action="#{overShoesMB.getPaginaInicial()}"/>
+                        <h:commandLink id="sobre" value="SOBRE" action="#{overShoesMB.getPaginaSobre()}" />
+                        <h:commandLink id="ideias" value="PRODUTOS" action="#{overShoesMB.getPaginaProdutos}"/>
                     </div>       
-                    <p:commandButton class="cadastrar" value="Cadastrar"/>
-                    <p:commandButton class="entrar" value="Entrar"/>
+                    <h:commandButton class="cadastrar" value="Cadastrar" action="#{overShoesMB.getPaginaCadastro()}" />
+                    <h:commandButton class="entrar" value="Entrar" action="#{overShoesMB.getPaginaLogin()}" />
                 </h:form>
         </div>
 

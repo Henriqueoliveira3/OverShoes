@@ -80,7 +80,7 @@ body{
     width: 13%;
     height: 7%;
     left: 65%;
-    top: 3.5vw;
+    top: 3.9vw;
 
     font-family: Fira Sans;
     font-style: normal;
@@ -99,8 +99,8 @@ body{
     position: absolute;
     width: 13%;
     height: 7.5%;
-    left: 70%;
-    top: 3.5vw;
+    left: 83%;
+    top: 3.9vw;
 
     font-family: Fira Sans;
     font-style: normal;
@@ -110,6 +110,122 @@ body{
     line-height: 0.5vw;
     color: #FFFFFF;
     border-radius: 0.5vw;
-    background: #2D4973;
+    background: #000e44;
 
+}
+#historiaSobre{
+    position: absolute;
+    width: 75%;
+    height: 15%;
+    left: 15%;
+    top: 33%;
+
+    font-family: Fira Sans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 1.5vw;
+    line-height: 145%;
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    color: #FFFFFF;
+}
+#cadastroNome{
+    position: absolute;
+    height: 25%;
+    top: 17%;
+    left: 38%;
+
+
+    font-family: Fira Sans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 1.5vw;
+    line-height: 250%;
+    text-align: center;
+    align-items: center;
+    color: #FFFFFF;
+}
+#cadastroEmail{
+    position: absolute;
+    height: 25%;
+    top: 32%;
+    left: 38%;
+
+
+    font-family: Fira Sans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 1.5vw;
+    line-height: 250%;
+    text-align: center;
+    align-items: center;
+    color: #FFFFFF;
+}
+#cadastroSenha{
+    position: absolute;
+    height: 25%;
+    top: 47%;
+    left: 38%;
+
+
+    font-family: Fira Sans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 1.5vw;
+    line-height: 250%;
+    text-align: center;
+    align-items: center; 
+    color: #FFFFFF;
+}
+#cadastroContraSenha{
+    position: absolute;
+    height: 25%;
+    top: 62%;
+    left: 38%;
+
+
+    font-family: Fira Sans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 1.5vw;
+    line-height: 250%;
+    text-align: center;
+    align-items: center;
+    color: #FFFFFF;
+}
+.registrar{
+    position: absolute;
+    width: 13%;
+    height: 7.5%;
+    left: 41.8%;
+    top: 83%;
+
+    font-family: Fira Sans;
+    font-style: normal;
+    font-weight: 500;
+    font-weight: bold;
+    font-size: 2vw;
+    line-height: 0.5vw;
+    color: #FFFFFF;
+    border-radius: 0.5vw;
+    background: #000e44;
+}
+.sucess{
+    position: absolute;
+    width: 13%;
+    height: 7.5%;
+    left: 41.8%;
+    top: 65%;
+
+    font-family: Fira Sans;
+    font-style: normal;
+    font-weight: 500;
+    font-weight: bold;
+    font-size: 2vw;
+    line-height: 0.5vw;
+    color: #FFFFFF;
+    border-radius: 0.5vw;
+    background: #000e44;
 }
