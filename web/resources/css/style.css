@@ -229,3 +229,184 @@ body{
     border-radius: 0.5vw;
     background: #000e44;
 }
+#jordan1{
+    position: absolute;
+    width: 25%;
+    height: 25%;
+    left: 14%;
+    top: 45%;
+}
+#solidwhitecolor{
+    position: absolute;
+    width: 75%;
+    height: 75%;
+    left: 13.1%;
+    top: 20%;
+    
+    border-radius: 0.5vw; 
+    z-index: -1;
+    background-color: #f3f3f3;
+}
+.comprarjordan1{
+    position: absolute;
+    width: 13%;
+    height: 7%;
+    left: 19%;
+    top: 37vw;
+
+    font-family: Fira Sans;
+    font-style: normal;
+    font-weight: 500;
+    font-weight: bold;
+    font-size: 1.8vw;
+    line-height: 0.5vw;
+    color: #FFFFFF;
+    border: 0.1vw solid #2D4973;
+    box-sizing: border-box;
+    border-radius: 0.5vw;
+    background-color: #000e44;
+
+}
+#airjordan1name{
+    position: absolute;
+    width: 13%;
+    height: 7%;
+    left: 22.5%;
+    top: 20vw;
+    
+    font-family: Fira Sans;
+    font-style: normal;
+    font-weight: 500;
+    font-weight: bold;
+    font-size: 1.8vw;
+    line-height: 0.5vw;
+    color: #000000;
+}
+#jordan1price{
+    
+    position: absolute;
+    width: 13%;
+    height: 7%;
+    left: 22%;
+    top: 35vw;
+    
+    font-family: Fira Sans;
+    font-style: normal;
+    font-weight: 500;
+    font-weight: bold;
+    font-size: 1.8vw;
+    line-height: 0.5vw;
+    color: #000000;
+}
+#airmax90{
+    position: absolute;
+    width: 20%;
+    height: 20%;
+    left: 40%;
+    top: 53%;
+}
+#airmax90price{
+    position: absolute;
+    width: 13%;
+    height: 7%;
+    left: 47%;
+    top: 35vw;
+    
+    font-family: Fira Sans;
+    font-style: normal;
+    font-weight: 500;
+    font-weight: bold;
+    font-size: 1.8vw;
+    line-height: 0.5vw;
+    color: #000000;
+}
+#airmax90name{
+    position: absolute;
+    width: 13%;
+    height: 7%;
+    left: 47%;
+    top: 20vw;
+    
+    font-family: Fira Sans;
+    font-style: normal;
+    font-weight: 500;
+    font-weight: bold;
+    font-size: 1.8vw;
+    line-height: 0.5vw;
+    color: #000000;
+}
+.comprarairmax90{
+    position: absolute;
+    width: 13%;
+    height: 7%;
+    left: 44%;
+    top: 37vw;
+
+    font-family: Fira Sans;
+    font-style: normal;
+    font-weight: 500;
+    font-weight: bold;
+    font-size: 1.8vw;
+    line-height: 0.5vw;
+    color: #FFFFFF;
+    border: 0.1vw solid #2D4973;
+    box-sizing: border-box;
+    border-radius: 0.5vw;
+    background-color: #000e44;
+}
+#trail2{
+    position: absolute;
+    width: 20%;
+    height: 40%;
+    left: 65%;
+    top: 37.5%;
+}
+#trail2price{
+  position: absolute;
+    width: 13%;
+    height: 7%;
+    left: 71.6%;
+    top: 35.1vw;
+    
+    font-family: Fira Sans;
+    font-style: normal;
+    font-weight: 500;
+    font-weight: bold;
+    font-size: 1.8vw;
+    line-height: 0.5vw;
+    color: #000000;  
+}
+#trail2name{
+    position: absolute;
+    width: 13%;
+    height: 7%;
+    left: 69.8%;
+    top: 20.1vw;
+    
+    font-family: Fira Sans;
+    font-style: normal;
+    font-weight: 500;
+    font-weight: bold;
+    font-size: 1.8vw;
+    line-height: 0.5vw;
+    color: #000000;
+}
+.comprartrail2{
+   position: absolute;
+    width: 13%;
+    height: 7%;
+    left: 69%;
+    top: 37vw;
+
+    font-family: Fira Sans;
+    font-style: normal;
+    font-weight: 500;
+    font-weight: bold;
+    font-size: 1.8vw;
+    line-height: 0.5vw;
+    color: #FFFFFF;
+    border: 0.1vw solid #2D4973;
+    box-sizing: border-box;
+    border-radius: 0.5vw;
+    background-color: #000e44; 
+}
