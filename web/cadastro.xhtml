@@ -4,25 +4,34 @@
                 template="./base.xhtml"
                 xmlns:p="http://primefaces.org/ui"
                 xmlns:h="http://xmlns.jcp.org/jsf/html">
+                
 
     <ui:define name="content">
         <img src="resources/background/background.png" alt="fundo" class="fundo"/>
-        <div id="cadastroNome">
-            Nome  <br/> <p:inputText />
-        </div>
+        <h:form>
+            <p:growl id="mensagem" showDetail="true" sticky="true"/>
+            
+            <h:inputHidden value="#{usuarioB.id}"/>
+            <div id="cadastroNome">
+                Nome  <br/> <p:inputText value="#{usuarioB.nome}" />
+            </div>
+
+            <div id="cadastroEmail">
+                Email  <br/> <p:inputText value="#{usuarioB.email}" />
+            </div>
+
+            <div id="cadastroSenha">
+                Senha  <br/> <p:inputText value="#{usuarioB.senha}" />
+            </div>
+
+            <div id="cadastroContraSenha">
+                Contra Senha  <br/> <p:inputText value="#{usuarioB.confirmarSenha}" />
+            </div>
+            <h:commandButton class="registrar" value="Registrar" action="#{usuarioB.salvarCadastro()}"/>
+        </h:form>
+            
+  
         
-        <div id="cadastroEmail">
-            Email  <br/> <p:inputText />
-        </div>
-        
-        <div id="cadastroSenha">
-            Senha  <br/> <p:inputText />
-        </div>
-        
-        <div id="cadastroContraSenha">
-            Contra Senha  <br/> <p:inputText />
-        </div>
-        <h:commandButton class="registrar" value="Registrar"/>
         
     </ui:define>
 
