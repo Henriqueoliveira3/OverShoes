@@ -13,6 +13,22 @@ import model.entity.Usuario;
  * @author Henrique
  */
 @Dependent
-public class UsuarioDAO extends BaseDao<Usuario>{
+public class UsuarioDAO extends BaseDAO<Usuario>{
 
+    public Usuario logar(String email, String senha){
+        
+        try
+        {
+            
+        
+            return (Usuario) getEntityManager().createNamedQuery("usuario.logar")
+                    .setParameter("email", email)
+                    .setParameter("senha", senha)
+                    .getSingleResult();
+        }
+        catch(Exception e){
+            System.out.println("Erro: "+e.getLocalizedMessage());
+            return null;
+        }
+    }
 }

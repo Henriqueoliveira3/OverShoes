@@ -5,6 +5,6 @@ import model.entity.Produto;
 
 
 @Dependent
-public class ProdutoDAO extends BaseDao<Produto>{
+public class ProdutoDAO extends BaseDAO<Produto>{
 
 }

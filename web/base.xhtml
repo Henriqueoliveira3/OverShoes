@@ -20,6 +20,12 @@
         <div id="top">
             <img src="resources/icones/logo.png" alt="logo" id="logo"/>
                 <p id="sublogo">Over<br/>Shoes</p>
+                
+                <h:form>
+                    <h:outputText value="#{usuarioB.usuario.nome}"/>
+                </h:form>
+                
+                        
                 <h:form>
                     <div class="menu">
                         <h:commandLink id="inicio" value="INICIO" action="#{overShoesMB.getPaginaInicial()}"/>

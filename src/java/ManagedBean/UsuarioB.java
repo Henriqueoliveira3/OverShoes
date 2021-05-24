@@ -16,6 +16,7 @@ public class UsuarioB {
 
     @Inject
     private UsuarioDAO UsuarioDAO;
+    private Usuario usuario;
     
     private Integer id;
     private String nome;
@@ -56,8 +57,33 @@ public class UsuarioB {
         }
     }
     
-    public void loginCliente(){    
+    public String logar(){    
+        usuario = UsuarioDAO.logar(email,senha);
         
+        
+        
+        if(usuario == null){
+            
+            return "index";
+        }
+        
+        FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("usuario", usuario);
+        
+        return "gerenciador?faces-redirect=true";
+    }
+    
+    public UsuarioB(){
+        if(FacesContext.getCurrentInstance().getExternalContext().getSessionMap().containsKey("usuario")){
+            usuario = (Usuario) FacesContext.getCurrentInstance().getExternalContext().getSessionMap().get("usuario");
+        }
+    }
+    
+    public Usuario getUsuario(){
+        return usuario;
+    }
+    
+    public void setUsuario(Usuario usuario){
+        this.usuario = usuario;
     }
     
     public Integer getId() {
