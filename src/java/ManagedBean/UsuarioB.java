@@ -58,18 +58,19 @@ public class UsuarioB {
     }
     
     public String logar(){    
-        usuario = UsuarioDAO.logar(email,senha);
-        
-        
-        
-        if(usuario == null){
-            
-            return "index";
+        usuario = UsuarioDAO.logar(email, senha);
+
+        if(getUsuario() == null){
+            return "loginCliente";
         }
-        
+
+        FacesContext context = FacesContext.getCurrentInstance();
+        context.addMessage(null, new FacesMessage (FacesMessage.SEVERITY_INFO, "Sucesso!", "O Cliente " + usuario.getNome() + " foi logado com sucesso!"));
+        context.getExternalContext().getFlash().setKeepMessages(true);
+
         FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("usuario", usuario);
-        
-        return "gerenciador?faces-redirect=true";
+
+        return "index?faces-redirect=true";
     }
     
     public UsuarioB(){

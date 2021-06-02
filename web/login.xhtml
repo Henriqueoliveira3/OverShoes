@@ -7,15 +7,20 @@
 
     <ui:define name="content">
         <img src="resources/background/background.png" alt="fundo" class="fundo"/>
-        <div id="cadastroEmail">
-            Email  <br/> <p:inputText />
-        </div>
+        <h:form>
+            <h:inputHidden value="#{usuarioB.id}"/>
+            <div id="cadastroEmail">
+                
+            Email  <br/> <p:inputText value="#{usuarioB.email}" />
+            </div>
+
+            <div id="cadastroSenha">
+                Senha  <br/> <p:inputText value="#{usuarioB.senha}" />
+            </div>
+
+            <h:commandButton class="sucess" value="Entrar" action="#{usuarioB.logar()}"/>
+        </h:form>
         
-        <div id="cadastroSenha">
-            Senha  <br/> <p:inputText />
-        </div>
-        
-        <h:commandButton class="sucess" value="Entrar"/>
     </ui:define>
 
 </ui:composition>

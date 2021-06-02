@@ -12,7 +12,7 @@ public class BaseDAO <T>
     {
         if(INSTANCE == null)
         {
-           INSTANCE = Persistence.createEntityManagerFactory("").createEntityManager();
+           INSTANCE = Persistence.createEntityManagerFactory("OverShoesPU").createEntityManager();
         }
          
         return INSTANCE;
