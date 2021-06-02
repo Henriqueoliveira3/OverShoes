@@ -79,6 +79,11 @@ public class UsuarioB {
         }
     }
     
+    public String logout(){
+        FacesContext.getCurrentInstance().getExternalContext().getSessionMap().remove("usuario");
+        return "index?faces-redirect=true";
+    }
+    
     public Usuario getUsuario(){
         return usuario;
     }

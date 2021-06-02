@@ -29,12 +29,18 @@
                         
                 <h:form>
                     <div class="menu">
-                        <h:commandLink id="inicio" value="INICIO" action="#{overShoesMB.getPaginaInicial()}"/>
-                        <h:commandLink id="sobre" value="SOBRE" action="#{overShoesMB.getPaginaSobre()}" />
-                        <h:commandLink id="ideias" value="PRODUTOS" action="#{overShoesMB.getPaginaProdutos}"/>
-                    </div>       
-                    <h:commandButton class="cadastrar" value="Cadastrar" action="#{overShoesMB.getPaginaCadastro()}" />
-                    <h:commandButton class="entrar" value="Entrar" action="#{overShoesMB.getPaginaLogin()}" />
+                        <h:commandLink id="inicio" value="INICIO" rendered="#{usuarioB.usuario == null}" action="#{overShoesMB.getPaginaInicial()}"/>
+                        <h:commandLink id="sobre" value="SOBRE" rendered="#{usuarioB.usuario == null}" action="#{overShoesMB.getPaginaSobre()}" />
+                        <h:commandLink id="ideias" value="PRODUTOS" rendered="#{usuarioB.usuario == null}" action="#{overShoesMB.getPaginaProdutos}"/>
+                    </div>    
+                    <div class="menuLogin">
+                        <h:commandLink id="iniciologin" value="INICIO" rendered="#{usuarioB.usuario != null}" action="#{overShoesMB.getPaginaInicial()}"/>
+                        <h:commandLink id="sobrelogin" value="SOBRE" rendered="#{usuarioB.usuario != null}" action="#{overShoesMB.getPaginaSobre()}" />
+                        <h:commandLink id="ideiaslogin" value="PRODUTOS" rendered="#{usuarioB.usuario != null}" action="#{overShoesMB.getPaginaProdutos}"/>            
+                    </div> 
+                    <h:commandButton class="cadastrarLogin" value="Sair" rendered="#{usuarioB.usuario != null}" action="#{usuarioB.logout()}" />
+                    <h:commandButton class="cadastrar" value="Cadastrar" rendered="#{usuarioB.usuario == null}" action="#{overShoesMB.getPaginaCadastro()}" />
+                    <h:commandButton class="entrar" value="Entrar" rendered="#{usuarioB.usuario == null}" action="#{overShoesMB.getPaginaLogin()}" />
                 </h:form>
         </div>
 
