@@ -26,7 +26,7 @@ public class OvershoesFilter implements Filter{
         HttpServletResponse httpResponse = (HttpServletResponse) response;
         HttpSession httpSession = httpRequest.getSession();
         
-        if(httpRequest.getRequestURI().contains("gerenciador")){
+        if(httpRequest.getRequestURI().contains("cadastroProdutos")){
             
             Usuario usuario = (Usuario) httpSession.getAttribute("usuario");
             

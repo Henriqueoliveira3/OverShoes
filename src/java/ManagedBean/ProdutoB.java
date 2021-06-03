@@ -3,6 +3,7 @@ package ManagedBean;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.OutputStream;
+import java.util.ArrayList;
 import java.util.List;
 import javax.inject.Named;
 import javax.enterprise.context.RequestScoped;
@@ -21,6 +22,8 @@ import org.primefaces.model.file.UploadedFile;
 @RequestScoped
 public class ProdutoB {
     
+    private List<Produto> carrinho;
+    
     @Inject
     private ProdutoDAO ProdutoDAO;
     
@@ -37,67 +40,62 @@ public class ProdutoB {
         return ProdutoDAO.getAllResults("produto.findAll");
     }
     
-    public void salvarProduto()
-    {
+    public ProdutoB(){
+        carrinho = new ArrayList<>();
         
+        if(utils.Utils.verificaExisteRegistroSessao("carrinho")){
+            carrinho = (List<Produto>) utils.Utils.recuperaRegistroSessao("carrinho");
+        }
+    }
+    
+    public String adicionarCarrinho(Produto p){
+        getCarrinho().add(p);
+        utils.Utils.addMessage(FacesMessage.SEVERITY_INFO,"Sucesso", "Produto foi adicionado no carrinho");
+        utils.Utils.salvaRegistroSessao("carrinho", getCarrinho());
+        return "index?faces-redirect=true";
+    }
+    
+    public String salvar(){
+        
+        try 
+        {
+            String caminho = ((ServletContext) FacesContext.getCurrentInstance().getExternalContext().getContext()).getRealPath("/");
+
+            File file = new File(caminho + "/resources/produtosdb/" + imagem.getFileName());
+
+            OutputStream out = new FileOutputStream(file);
+            out.write(imagem.getContent());
+            out.close();
+
+            foto = imagem.getFileName();
+
+        } catch (Exception e) {
+            FacesContext context = FacesContext.getCurrentInstance();
+            context.addMessage(null, new FacesMessage (FacesMessage.SEVERITY_FATAL, "Erro ao salvar a Imagem", "Erro: " + e.getLocalizedMessage()));
+        }
 
         Produto p = new Produto();
-        
+
         p.setNome(nome);
         p.setPreco(preco);
         p.setDescricao(descricao);
         p.setFoto(foto);
-        
+
         p = ProdutoDAO.save(p);
-        
+
         if (p == null)
         {
             FacesContext context = FacesContext.getCurrentInstance();
-            context.addMessage(null, new FacesMessage (FacesMessage.SEVERITY_INFO, "O cadastro não foi realizado, favor olhar o output!", ""));
+            context.addMessage(null, new FacesMessage (FacesMessage.SEVERITY_INFO, "Erro ao Cadastrar", "O cadastro não foi realizado, favor olhar o output!"));
+            context.getExternalContext().getFlash().setKeepMessages(true);
         }
         else
         {
             FacesContext context = FacesContext.getCurrentInstance();
-            context.addMessage(null, new FacesMessage (FacesMessage.SEVERITY_INFO, "O Produto " + nome + " foi cadastrado com sucesso!", ""));
+            context.addMessage(null, new FacesMessage (FacesMessage.SEVERITY_INFO, "Sucesso!", "O Produto " + nome + " foi cadastrado com sucesso!"));
+            context.getExternalContext().getFlash().setKeepMessages(true);
         }
-    }
 
-  
-    
-    public String salvar(){
-        
-        try{
-            String caminho = utils.Utils.getRealPath();
-            File file = new File(caminho + "/resources/produtos/" + imagem.getFileName());
-            OutputStream out = new FileOutputStream(file);
-            out.write(imagem.getContent());
-            out.close();
-            
-            foto = imagem.getFileName();
-        }
-        catch(Exception ex){
-            utils.Utils.addMessage(FacesMessage.SEVERITY_FATAL, "Erro ao salvar a imagem", "Erro" + ex.getLocalizedMessage());
-            return "index?faces-redirect=true";
-        }
-        
-        Produto p = new Produto();
-        p.setNome(nome);
-        p.setDescricao(descricao);
-        p.setPreco(preco);
-        p.setFoto(foto);
-        
-        p = ProdutoDAO.save(p);
-        
-        if (p == null)
-        {
-            FacesContext context = FacesContext.getCurrentInstance();
-            context.addMessage(null, new FacesMessage (FacesMessage.SEVERITY_INFO, "O cadastro não foi realizado, favor olhar o output!", ""));
-        }else
-        {
-            FacesContext context = FacesContext.getCurrentInstance();
-            context.addMessage(null, new FacesMessage (FacesMessage.SEVERITY_INFO, "O produto " + nome + " foi cadastrado com sucesso!", ""));
-        }
-        
         return "produtos?faces-redirect=true";
     }
     
@@ -155,5 +153,19 @@ public class ProdutoB {
      */
     public void setImagem(UploadedFile imagem) {
         this.imagem = imagem;
+    }
+
+    /**
+     * @return the carrinho
+     */
+    public List<Produto> getCarrinho() {
+        return carrinho;
+    }
+
+    /**
+     * @param carrinho the carrinho to set
+     */
+    public void setCarrinho(List<Produto> carrinho) {
+        this.carrinho = carrinho;
     }
 }

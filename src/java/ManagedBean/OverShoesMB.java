@@ -48,5 +48,11 @@ public class OverShoesMB {
     public String getPaginaBebida(){
         return "bebida";
     }
+    public String getPaginaCadastroProdutos(){
+        return "cadastroProdutos";
+    }
+    public String getPaginaCarrinho(){
+        return "carrinho";
+    }
     
 }

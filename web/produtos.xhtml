@@ -11,25 +11,26 @@
         
         
         
+        <h:form>
+            <ui:repeat value="#{produtoB.todosDados}" var="produto">
+                <div id="nomeProdutos">
+                    <p:graphicImage name="produtosdb/#{produto.foto}"  alt="logo" style="width: 250px; height: 250px;"/>
+                    <div id="coisaoDoProduto">
+                        <p class="tituloProdutos"><h:outputText value="#{produto.nome}"/></p>
+                        <p class="precoProduto"><h:outputText value="R$ #{produto.preco}"/></p>
+                        <h:commandButton class="" value="Adicionar ao carrinho" action="#{produtoB.adicionarCarrinho(produto)}"/>
+                    </div>
+                </div>
+            </ui:repeat>
 
-            <ui:repeat value="#{produtoB.todosDados}" var="produto"/>
-           <div id="solidwhitecolor">
                
-                <p:graphicImage id="airmax90" name="produtos/#{produto.foto}" alt="tenis" />
-                <p:overlayPanel for="@previous" style="width: 400px"/>
-                <h:commandButton class="comprarairmax90" value="Comprar"/>
+            
+                
 
-                <img src="resources/produtos/jordan1.png" alt="tenis" id="jordan1"/>
-                <p1 id="jordan1price">R$ 587,99</p1>
-                <p1 id="airjordan1name">Air Jordan 1</p1>
-                <h:commandButton class="comprarjordan1" value="Comprar"/>
-                <p1 id="trail2price">R$ 850,99</p1>
-                <p1 id="trail2name">Trail 2 Feminino</p1>
-                <h:commandButton class="comprartrail2" value="Comprar"/>
 
-                <img src="resources/produtos/PegasusTrail2.png" alt="trail2" id="trail2"/>
-            </div> 
-
+            
+        </h:form>
+        
         
             
         

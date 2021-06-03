@@ -40,8 +40,9 @@
                         <h:commandLink id="ideias" value="PRODUTOS" rendered="#{usuarioB.usuario == null}" action="#{overShoesMB.getPaginaProdutos}"/>
                     </div>    
                     <div class="menuLogin">
-                        <h:commandLink id="iniciologin" value="INICIO" rendered="#{usuarioB.usuario != null}" action="#{overShoesMB.getPaginaInicial()}"/>
-                        <h:commandLink id="sobrelogin" value="SOBRE" rendered="#{usuarioB.usuario != null}" action="#{overShoesMB.getPaginaSobre()}" />
+                        <h:commandLink id="iniciologin1" value="INICIO" rendered="#{usuarioB.usuario != null}" action="#{overShoesMB.getPaginaInicial()}"/>
+                        <h:commandLink id="iniciologin" value="GERENCIADOR" rendered="#{usuarioB.usuario.administrador == true}" action="#{overShoesMB.getPaginaCadastroProdutos()}"/>
+                        <h:commandLink id="sobrelogin" value="CARRINHO" rendered="#{usuarioB.usuario != null}" action="#{overShoesMB.getPaginaCarrinho()}" />
                         <h:commandLink id="ideiaslogin" value="PRODUTOS" rendered="#{usuarioB.usuario != null}" action="#{overShoesMB.getPaginaProdutos}"/>            
                     </div> 
                     <h:commandButton class="cadastrarLogin" value="Sair" rendered="#{usuarioB.usuario != null}" action="#{usuarioB.logout()}" />

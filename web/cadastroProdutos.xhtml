@@ -11,6 +11,7 @@
         <h5 id="tituloCadastroProduto">Cadastro de Produtos</h5>
         
         <h:form enctype="multipart/form-data">
+            <h:inputHidden value="#{produtoB.id}"/>
             <div id="cadastroProduto">
                 Nome do produto  <br/> <p:inputText  value="#{produtoB.nome}"/>
             </div>
