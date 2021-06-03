@@ -22,13 +22,19 @@
                 <p id="sublogo">Over<br/>Shoes</p>
                 
                 <h:form>
-                    <h:outputText value="#{usuarioB.usuario.nome}"/>
                     <p:growl id="mensagem" showDetail="true" severity="error,info,fatal"/>
                 </h:form>
                 
+                <h:form>
+                    <div class="usuariologado">
+                        <h:outputText class="usuariologado" value="#{usuarioB.usuario.nome}"/>
+                    </div>
+                    
+                </h:form>
                         
                 <h:form>
                     <div class="menu">
+                        
                         <h:commandLink id="inicio" value="INICIO" rendered="#{usuarioB.usuario == null}" action="#{overShoesMB.getPaginaInicial()}"/>
                         <h:commandLink id="sobre" value="SOBRE" rendered="#{usuarioB.usuario == null}" action="#{overShoesMB.getPaginaSobre()}" />
                         <h:commandLink id="ideias" value="PRODUTOS" rendered="#{usuarioB.usuario == null}" action="#{overShoesMB.getPaginaProdutos}"/>

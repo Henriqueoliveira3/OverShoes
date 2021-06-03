@@ -8,24 +8,29 @@
     <ui:define name="content">
         <img src="resources/background/background.png" alt="fundo" class="fundo"/>  
         
-        <img src="resources/produtos/airmax90.png" alt="airmax" id="airmax90"/>
-        <p1 id="airmax90price">R$ 729,99</p1>
-        <p1 id="airmax90name">Air Max 90</p1>
-        <h:commandButton class="comprarairmax90" value="Comprar"/>
-        
-        <img src="resources/produtos/jordan1.png" alt="tenis" id="jordan1"/>
-        <p1 id="jordan1price">R$ 587,99</p1>
-        <p1 id="airjordan1name">Air Jordan 1</p1>
-        <h:commandButton class="comprarjordan1" value="Comprar"/>
-        <p1 id="trail2price">R$ 850,99</p1>
-        <p1 id="trail2name">Trail 2 Feminino</p1>
-        <h:commandButton class="comprartrail2" value="Comprar"/>
-        
-        <img src="resources/produtos/PegasusTrail2.png" alt="trail2" id="trail2"/>
         
         
         
-        <div id="solidwhitecolor"></div>
+
+            <ui:repeat value="#{produtoB.todosDados}" var="produto"/>
+           <div id="solidwhitecolor">
+               
+                <p:graphicImage id="airmax90" name="produtos/#{produto.foto}" alt="tenis" />
+                <p:overlayPanel for="@previous" style="width: 400px"/>
+                <h:commandButton class="comprarairmax90" value="Comprar"/>
+
+                <img src="resources/produtos/jordan1.png" alt="tenis" id="jordan1"/>
+                <p1 id="jordan1price">R$ 587,99</p1>
+                <p1 id="airjordan1name">Air Jordan 1</p1>
+                <h:commandButton class="comprarjordan1" value="Comprar"/>
+                <p1 id="trail2price">R$ 850,99</p1>
+                <p1 id="trail2name">Trail 2 Feminino</p1>
+                <h:commandButton class="comprartrail2" value="Comprar"/>
+
+                <img src="resources/produtos/PegasusTrail2.png" alt="trail2" id="trail2"/>
+            </div> 
+
+        
             
         
 

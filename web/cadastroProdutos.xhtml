@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                template="./base.xhtml"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:h="http://xmlns.jcp.org/jsf/html">
+
+    <ui:define name="content">
+        <img src="resources/background/background.png" alt="fundo" class="fundo"/>
+        <h5 id="tituloCadastroProduto">Cadastro de Produtos</h5>
+        
+        <h:form enctype="multipart/form-data">
+            <div id="cadastroProduto">
+                Nome do produto  <br/> <p:inputText  value="#{produtoB.nome}"/>
+            </div>
+
+            <div id="cadastroDescricao">
+                Descrição <br/><p:inputText  value="#{produtoB.descricao}"/>
+            </div>   
+
+            <div id="cadastroPreco">
+                Preço <br/><p:inputNumber symbol="R$ "  value="#{produtoB.preco}"/>
+            </div>  
+            
+            <div id="cadastroImagem">
+                Imagem <br/> <p:fileUpload value="#{produtoB.imagem}" mode="simple"/>
+            </div>
+            
+            <h:commandButton value="Salvar" class="btnSalvarProduto" action="#{produtoB.salvar()}" />
+        </h:form>
+        
+                
+                
+                
+
+
+    </ui:define>
+
+</ui:composition>

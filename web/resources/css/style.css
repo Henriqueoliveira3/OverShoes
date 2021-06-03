@@ -442,3 +442,117 @@ body{
     border-radius: 0.5vw;
     background-color: #000e44; 
 }
+#tituloCadastroProduto{
+    position: absolute;
+    width: 18%;
+    height: 7%;
+    left: 44%;
+    top: 12vw;
+    
+    font-family: Fira Sans;
+    font-style: normal;
+    font-weight: 500;
+    font-weight: bold;
+    font-size: 1.8vw;
+    line-height: 0.5vw;
+    color: #FFFFFF;
+}
+#cadastroProduto{
+    position: absolute;
+    height: 25%;
+    top: 34%;
+    left: 25%;
+
+
+    font-family: Fira Sans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 1.5vw;
+    line-height: 250%;
+    text-align: center;
+    align-items: center;
+    color: #FFFFFF;
+}
+#cadastroDescricao{
+    position: absolute;
+    height: 25%;
+    top: 34%;
+    left: 60%;
+
+
+    font-family: Fira Sans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 1.5vw;
+    line-height: 250%;
+    text-align: center;
+    align-items: center;
+    color: #FFFFFF;
+}
+#cadastroPreco{
+    position: absolute;
+    height: 25%;
+    top: 50%;
+    left: 25%;
+
+
+    font-family: Fira Sans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 1.5vw;
+    line-height: 250%;
+    text-align: center;
+    align-items: center;
+    color: #FFFFFF;
+}
+#cadastroImagem{
+    position: absolute;
+    height: 25%;
+    top: 52%;
+    left: 60%;
+
+
+    font-family: Fira Sans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 1.5vw;
+    line-height: 250%;
+    text-align: center;
+    align-items: center;
+    color: #FFFFFF;
+}
+.btnSalvarProduto{
+    position: absolute;
+    width: 13%;
+    height: 7.5%;
+    left: 45%;
+    top: 75%;
+
+    font-family: Fira Sans;
+    font-style: normal;
+    font-weight: 500;
+    font-weight: bold;
+    font-size: 2vw;
+    line-height: 0.5vw;
+    color: #FFFFFF;
+    border-radius: 0.5vw;
+    background: #000e44;  
+}
+.usuariologado{
+    
+    position: absolute;
+    left: 69%;
+    top: 11.3%;
+    width: 11.5%;
+    
+    
+    font-family: Fira Sans;
+    font-style: normal;
+    font-weight: 500;
+    font-weight: bold;
+    font-size: 1.5vw;
+    line-height: 0.5vw;
+    color: #FFFFFF;
+    border-radius: 0.5vw;
+
+}
