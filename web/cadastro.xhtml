@@ -21,11 +21,11 @@
             </div>
 
             <div id="cadastroSenha">
-                Senha  <br/> <p:inputText value="#{usuarioB.senha}" />
+                Senha  <br/> <p:password value="#{usuarioB.senha}" />
             </div>
 
             <div id="cadastroContraSenha">
-                Contra Senha  <br/> <p:inputText value="#{usuarioB.confirmarSenha}" />
+                Contra Senha  <br/> <p:password value="#{usuarioB.confirmarSenha}" />
             </div>
             <h:commandButton class="registrar" value="Registrar" action="#{usuarioB.salvarCadastro()}"/>
         </h:form>

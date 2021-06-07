@@ -8,18 +8,18 @@
 
     <ui:define name="content">
         <img src="resources/background/background.png" alt="fundo" class="fundo"/>
-        
         <h:form>
-            <p:dataTable class="tabelaCarrinho" value="#{produtoB.carrinho}" var="produto">
-                <p:column headerText="Nome">
-                    <h:outputText value="#{produto.nome}"/>
+            <p:dataTable class="tabelaCarrinho" value="#{produtoB.todosPedidos}" var="pedido">
+                <p:column headerText="Número do pedido">
+                    <h:outputText value="#{pedido.id}"/>
                 </p:column>
-                <p:column headerText="Preço">
-                    <h:outputText value="#{produto.preco}"/>
+                <p:column headerText="Usuário">
+                    <h:outputText value="#{pedido.usuario.nome}"/>
                 </p:column>  
+                <p:column headerText="Valor total">
+                    <h:outputText value="R$ #{pedido.valorTotal}"/>
+                </p:column>
             </p:dataTable>
-            <h:commandButton value="Lista de compras" rendered="#{usuarioB.usuario.administrador == true}" class="trocarPGLista" action="#{overShoesMB.getPaginaListaCompras()}"/>
-            <h:commandButton value="Comprar" class="btnEfetuarCompra" action="#{produtoB.efetuarCompra()}"/>
         </h:form>
     </ui:define>
 

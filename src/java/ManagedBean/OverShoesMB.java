@@ -54,5 +54,8 @@ public class OverShoesMB {
     public String getPaginaCarrinho(){
         return "carrinho";
     }
+    public String getPaginaListaCompras(){
+        return "listaCompras";
+    }
     
 }

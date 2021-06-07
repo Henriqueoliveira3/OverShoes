@@ -42,12 +42,12 @@
                     <div class="menuLogin">
                         <h:commandLink id="iniciologin1" value="INICIO" rendered="#{usuarioB.usuario.administrador == false}" action="#{overShoesMB.getPaginaInicial()}"/>
                         <h:commandLink id="sobrelogin" value="CARRINHO" rendered="#{usuarioB.usuario.administrador == false}" action="#{overShoesMB.getPaginaCarrinho()}" />
-                        <h:commandLink id="ideiaslogin" value="PRODUTOS" rendered="#{usuarioB.usuario.administrador == false}" action="#{overShoesMB.getPaginaProdutos}"/>            
+                        <h:commandLink id="ideiaslogin" value="PRODUTOS" rendered="#{usuarioB.usuario.administrador == false}" action="#{overShoesMB.getPaginaProdutos()}"/>            
                     </div>
                     <div class="menuLoginADM">
                         <h:commandLink id="iniciologinadm" value="GERENCIADOR" rendered="#{usuarioB.usuario.administrador == true}" action="#{overShoesMB.getPaginaCadastroProdutos()}"/>
                         <h:commandLink id="sobreloginadm" value="CARRINHO" rendered="#{usuarioB.usuario.administrador == true}" action="#{overShoesMB.getPaginaCarrinho()}" />
-                        <h:commandLink id="ideiasloginadm" value="PRODUTOS" rendered="#{usuarioB.usuario.administrador == true}" action="#{overShoesMB.getPaginaProdutos}"/>            
+                        <h:commandLink id="ideiasloginadm" value="PRODUTOS" rendered="#{usuarioB.usuario.administrador == true}" action="#{overShoesMB.getPaginaProdutos()}"/>            
                     </div>
                     <h:commandButton class="cadastrarLogin" value="Sair" rendered="#{usuarioB.usuario != null}" action="#{usuarioB.logout()}" />
                     <h:commandButton class="cadastrar" value="Cadastrar" rendered="#{usuarioB.usuario == null}" action="#{overShoesMB.getPaginaCadastro()}" />

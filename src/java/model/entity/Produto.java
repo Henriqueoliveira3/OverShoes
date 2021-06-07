@@ -14,6 +14,7 @@ import javax.persistence.Table;
 @Table(name = "produto")
 @NamedQueries({
     @NamedQuery(name = "produto.findAll", query = "SELECT p FROM Produto p")
+
 })
 public class Produto implements Serializable
 {
@@ -29,6 +30,7 @@ public class Produto implements Serializable
     private String foto;
     @Column
     private Double preco;
+    
 
     public Integer getId()
     {

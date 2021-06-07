@@ -18,17 +18,10 @@
                     <div id="coisaoDoProduto">
                         <p class="tituloProdutos"><h:outputText value="#{produto.nome}"/></p>
                         <p class="precoProduto"><h:outputText value="R$ #{produto.preco}"/></p>
-                        <h:commandButton class="" value="Adicionar ao carrinho" action="#{produtoB.adicionarCarrinho(produto)}"/>
+                        <h:commandButton class="" value="Adicionar ao carrinho" rendered="#{usuarioB.usuario != null}" action="#{produtoB.adicionarCarrinho(produto)}"/>
                     </div>
                 </div>
             </ui:repeat>
-
-               
-            
-                
-
-
-            
         </h:form>
         
         

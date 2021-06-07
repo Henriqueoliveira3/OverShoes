@@ -12,8 +12,16 @@ import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.servlet.Servlet;
 import javax.servlet.ServletContext;
+
+
+
+import model.dao.PedidoDAO;
 import model.dao.ProdutoDAO;
+import model.dao.ProdutoPedidoDAO;
+import model.entity.Pedido;
 import model.entity.Produto;
+import model.entity.ProdutoPedido;
+import model.entity.Usuario;
 import org.primefaces.model.file.UploadedFile;
 
 /**@author Henrique de Oliveira*/
@@ -21,11 +29,18 @@ import org.primefaces.model.file.UploadedFile;
 @Named(value = "produtoB")
 @RequestScoped
 public class ProdutoB {
-    
+    private Usuario usuario;
     private List<Produto> carrinho;
-    
     @Inject
     private ProdutoDAO ProdutoDAO;
+    @Inject
+    private PedidoDAO PedidoDAO;
+    @Inject
+    private ProdutoPedidoDAO produtoPedidoDAO;
+
+
+
+
     
     private Integer id;
     private String nome;
@@ -39,20 +54,77 @@ public class ProdutoB {
     {
         return ProdutoDAO.getAllResults("produto.findAll");
     }
-    
+    public List<Pedido> getTodosPedidos(){
+        return PedidoDAO.getAllResults("pedido.findAll");
+    }
     public ProdutoB(){
         carrinho = new ArrayList<>();
         
         if(utils.Utils.verificaExisteRegistroSessao("carrinho")){
             carrinho = (List<Produto>) utils.Utils.recuperaRegistroSessao("carrinho");
         }
+        
+        if(utils.Utils.verificaExisteRegistroSessao("usuario")){
+            usuario = (Usuario) utils.Utils.recuperaRegistroSessao("usuario");
+        }
+    }
+    
+    
+    public String efetuarCompra(){
+        if(carrinho.isEmpty()){
+            utils.Utils.addMessage(FacesMessage.SEVERITY_INFO, "Carrinho Vazio", "Não foi adicionado nenhum produto ao carrinho.");
+            return "index?faces-redirect=true";
+            
+        }
+        double valorTotal = 0;
+        
+        for(Produto produtoCarrinho : carrinho){
+            valorTotal += produtoCarrinho.getPreco();
+        }
+        
+        Pedido pedido = new Pedido();
+        pedido.setUsuario(usuario);
+        pedido.setValorTotal(valorTotal);
+        
+        pedido = PedidoDAO.save(pedido);
+        
+        if(pedido == null){
+            utils.Utils.addMessage(FacesMessage.SEVERITY_ERROR, "Erro ao efetuar o pedido", "Não foi possivel efetuar o pedido");
+            return "index?faces-redirect=true";
+        }
+        
+        for(Produto produtoCarrinho : carrinho){
+            ProdutoPedido produtoPedido = new ProdutoPedido();
+            produtoPedido.setPedido(pedido);
+            produtoPedido.setProduto(produtoCarrinho);
+            produtoPedido = produtoPedidoDAO.save(produtoPedido);
+            
+            if(produtoPedido == null){
+                utils.Utils.addMessage(FacesMessage.SEVERITY_ERROR, "Erro ao efetuar o pedido", "Não foi possivel efetuar o pedido");
+                return "index?faces-redirect=true";
+            }
+ 
+        }
+        FacesContext context = FacesContext.getCurrentInstance();
+        context.addMessage(null, new FacesMessage (FacesMessage.SEVERITY_INFO, "Pedido salvo com sucesso!", "Preço total : " + valorTotal));
+        context.getExternalContext().getFlash().setKeepMessages(true);
+        
+        carrinho = new ArrayList<>();
+        utils.Utils.salvaRegistroSessao("carrinho", carrinho);
+        
+        
+        
+        return "index?faces-redirect=true"; 
+    
     }
     
     public String adicionarCarrinho(Produto p){
         getCarrinho().add(p);
-        utils.Utils.addMessage(FacesMessage.SEVERITY_INFO,"Sucesso", "Produto foi adicionado no carrinho");
+        FacesContext context = FacesContext.getCurrentInstance();
+        context.addMessage(null, new FacesMessage (FacesMessage.SEVERITY_INFO, "Sucesso", "Pedido salvo no carrinho"));
+        context.getExternalContext().getFlash().setKeepMessages(true);
         utils.Utils.salvaRegistroSessao("carrinho", getCarrinho());
-        return "index?faces-redirect=true";
+        return "produtos?faces-redirect=true";
     }
     
     public String salvar(){

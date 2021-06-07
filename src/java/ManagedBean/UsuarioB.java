@@ -31,7 +31,7 @@ public class UsuarioB {
         return UsuarioDAO.getAllResults("usuario.findAll");
     }
     
-    public void salvarCadastro()
+    public String salvarCadastro()
     {
         
         Usuario u = new Usuario();
@@ -48,20 +48,28 @@ public class UsuarioB {
         if (u == null)
         {
             FacesContext context = FacesContext.getCurrentInstance();
-            context.addMessage(null, new FacesMessage (FacesMessage.SEVERITY_INFO, "O cadastro nÃ£o foi realizado, favor olhar o output!", ""));
+            context.addMessage(null, new FacesMessage (FacesMessage.SEVERITY_ERROR, "Erro!", "Favor contactar um administrador"));
+            context.getExternalContext().getFlash().setKeepMessages(true);
         }
         else
         {
             FacesContext context = FacesContext.getCurrentInstance();
             context.addMessage(null, new FacesMessage (FacesMessage.SEVERITY_INFO, "O Cliente " + nome + " foi cadastrado com sucesso!", ""));
+            context.getExternalContext().getFlash().setKeepMessages(true);
+            
         }
+        return "login?faces-redirect=true";
+        
     }
     
     public String logar(){    
         usuario = UsuarioDAO.logar(email, senha);
 
         if(getUsuario() == null){
-            return "loginCliente";
+            FacesContext context = FacesContext.getCurrentInstance();
+            context.addMessage(null, new FacesMessage (FacesMessage.SEVERITY_ERROR, "Erro!", "Email ou senha incorretos"));
+            context.getExternalContext().getFlash().setKeepMessages(true);
+            return "loginCliente?faces-redirect=true";
         }
 
         FacesContext context = FacesContext.getCurrentInstance();

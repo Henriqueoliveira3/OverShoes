@@ -90,7 +90,7 @@ body{
 .menuLoginADM a{
     text-decoration: none;
     color: #ffffff;
-    font-size: 2.2vw;
+    font-size: 2.0vw;
     margin-right: 12%;
     float: left;
 }
@@ -598,4 +598,61 @@ body{
     left: 27%;
     width: 50%;
     height: 50%;
+}
+.tabelaCarrinho2{
+    position: absolute;
+    top: 55%;
+    left: 27%;
+    width: 50%;
+    height: 50%;
+}
+.btnEfetuarCompra{
+    position: absolute;
+    width: 13%;
+    height: 7.5%;
+    left: 45%;
+    top: 75%;
+
+    font-family: Fira Sans;
+    font-style: normal;
+    font-weight: 500;
+    font-weight: bold;
+    font-size: 2vw;
+    line-height: 0.5vw;
+    color: #FFFFFF;
+    border-radius: 0.5vw;
+    background: #000e44;
+}
+#valorTotalProduto{
+    position: absolute;
+    height: 25%;
+    top: 17%;
+    left: 38%;
+
+
+    font-family: Fira Sans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 1.5vw;
+    line-height: 250%;
+    text-align: center;
+    align-items: center;
+    color: #FFFFFF;   
+}
+.trocarPGLista{
+    position: absolute;
+    width: 17%;
+    height: 7.5%;
+    left: 75%;
+    top: 85%;
+
+    font-family: Fira Sans;
+    font-style: normal;
+    font-weight: 500;
+    font-weight: bold;
+    font-size: 2vw;
+    line-height: 0.5vw;
+    color: #FFFFFF;
+    border-radius: 0.5vw;
+    background: #000e44;
 }
